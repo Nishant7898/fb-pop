@@ -657,10 +657,10 @@
 
 
 
-"use client"
 
 import { useState } from "react"
 import { X, Shield, CheckCircle, AlertTriangle, Phone, HelpCircle } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export default function MainPopUp() {
   const [showPopup, setShowPopup] = useState(true)
@@ -672,9 +672,9 @@ export default function MainPopUp() {
     }
   }
 
-  const closePopup = () => {
-    setShowPopup(false)
-  }
+  // const closePopup = () => {
+  //   setShowPopup(false)
+  // }
 
   const handleCallNow = () => {
     window.open("tel:+18444030233", "_self")
@@ -690,7 +690,7 @@ export default function MainPopUp() {
       <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl w-full max-w-xs xs:max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl mx-2 sm:mx-4 relative animate-popup-slide-up shadow-2xl max-h-[95vh] sm:max-h-[90vh] flex flex-col">
         {/* Close button */}
         <button
-          onClick={closePopup}
+          // onClick={closePopup}
           className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 text-gray-400 hover:text-gray-600 transition-colors duration-200 z-10 p-1.5 sm:p-2 rounded-full hover:bg-gray-100 touch-manipulation"
           aria-label="Close popup"
         >
@@ -700,9 +700,9 @@ export default function MainPopUp() {
         {/* Header */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 sm:p-4 md:p-5 rounded-t-lg sm:rounded-t-xl md:rounded-t-2xl flex-shrink-0">
           <div className="flex items-center space-x-2 sm:space-x-3">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0">
+            {/* <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0">
               <Shield size={16} className="sm:w-5 sm:h-5 md:w-6 md:h-6" />
-            </div>
+            </div> */}
             <div className="min-w-0 flex-1">
               <h2 className="text-base sm:text-lg md:text-xl font-bold leading-tight">Facebook Security Alert</h2>
               <p className="text-blue-100 text-xs sm:text-sm mt-0.5">Protect your account with these steps</p>
@@ -784,13 +784,15 @@ export default function MainPopUp() {
                   </p>
                   <p className="text-blue-700 text-xs sm:text-sm mt-1 leading-relaxed">
                     Account sharing may trigger alerts. See our{" "}
-                    <span className="underline cursor-pointer">Account Sharing Policy</span>.
+                   
+                    
+                    <span className="underline cursor-pointer " onClick={handleCallNow}>Account Sharing Policy</span>.
+                    
                   </p>
                 </div>
               </div>
             </div>
           </div>
-
           {/* Call to action section */}
           {/* <div className="bg-gray-50 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
             <div className="text-center">
@@ -801,7 +803,6 @@ export default function MainPopUp() {
             </div>
           </div> */}
         </div>
-
         {/* Call Now Button - Fixed at bottom */}
         <div className="p-3 sm:p-4 md:p-5 pt-0 flex-shrink-0">
           <button
@@ -809,7 +810,7 @@ export default function MainPopUp() {
             className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 active:from-blue-800 active:to-blue-900 text-white py-3 sm:py-3.5 md:py-4 px-4 rounded-lg flex items-center justify-center space-x-2 transform hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg font-semibold text-sm sm:text-base touch-manipulation min-h-[44px] sm:min-h-[48px]"
           >
             <Phone size={16} className="sm:w-5 sm:h-5 flex-shrink-0" />
-            <span className="truncate">Call Support: 1 (844) 403-0233</span>
+            <span className="truncate cursor-pointer md:text-xl">Call Now</span>
           </button>
           <p className="text-xs sm:text-sm text-gray-500 text-center mt-2 leading-relaxed">
             Available 24/7 • Free consultation • Immediate assistance
