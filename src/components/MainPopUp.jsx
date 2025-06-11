@@ -839,7 +839,7 @@ export default function MainPopUp() {
   // }
 
   const handleCallNow = () => {
-    window.open("tel:+18444030233", "_self")
+    window.open("tel:+18282421244", "_self")
   }
 
   if (!showPopup) return null
